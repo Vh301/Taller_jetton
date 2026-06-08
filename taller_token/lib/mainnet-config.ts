@@ -28,6 +28,7 @@ export const MAINNET_TONAPI = "https://tonapi.io";
 export const MAINNET_TONCENTER_RPC = "https://toncenter.com/api/v2/jsonRPC";
 
 export const MAINNET_CONFIRM_VALUE = "YES_I_UNDERSTAND";
+export const MAINNET_MINT_CONFIRM_VALUE = "YES_MINT_TALLER";
 export const REVOKE_CONFIRM_VALUE = "YES_REVOKE_OWNER";
 export const CLOSE_MINTING_CONFIRM_VALUE = "YES_CLOSE_MINTING";
 
@@ -69,9 +70,17 @@ export function assertMainnetConfirm(): void {
   }
 }
 
-export function assertCloseMintingConfirm(): void {
-  assertMainnetConfirm();
+export function assertMainnetMintConfirm(): void {
+  const mintConfirm = process.env.TALLER_MAINNET_MINT_CONFIRM?.trim();
 
+  if (mintConfirm !== MAINNET_MINT_CONFIRM_VALUE) {
+    throw new Error(
+      `Mainnet mint blocked. Set TALLER_MAINNET_MINT_CONFIRM=${MAINNET_MINT_CONFIRM_VALUE} in taller_token/.env.local`,
+    );
+  }
+}
+
+export function assertCloseMintingConfirm(): void {
   const closeConfirm = process.env.TALLER_CLOSE_MINTING_CONFIRM?.trim();
 
   if (closeConfirm !== CLOSE_MINTING_CONFIRM_VALUE) {
@@ -82,8 +91,6 @@ export function assertCloseMintingConfirm(): void {
 }
 
 export function assertRevokeConfirm(): void {
-  assertMainnetConfirm();
-
   const revokeConfirm = process.env.TALLER_REVOKE_ADMIN_CONFIRM?.trim();
 
   if (revokeConfirm !== REVOKE_CONFIRM_VALUE) {

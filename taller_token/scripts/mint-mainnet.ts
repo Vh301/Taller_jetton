@@ -11,7 +11,7 @@ import { assertSameAddress } from "../lib/address-guard";
 import {
   MAINNET_NETWORK_GLOBAL_ID,
   MAINNET_TONAPI,
-  assertMainnetConfirm,
+  assertMainnetMintConfirm,
   assertMainnetNetworkOnly,
   isPrepareOnly,
   loadMainnetDeployMnemonic,
@@ -26,6 +26,7 @@ import {
   rawMintableFromStack,
 } from "../lib/tonapi-jetton";
 import { assertSafeMintResponseDestination } from "../lib/mint-safety";
+import { printRefundSafetyReport } from "../lib/refund-safety";
 import {
   buildSignedExternalBoc,
   createMainnetWallet,
@@ -117,17 +118,34 @@ async function main() {
     throw new Error(`Preflight failed: get_jetton_data mintable raw is ${rawMintable}, expected true (-0x1)`);
   }
 
+  const responseDestination = walletAddress;
+  assertSafeMintResponseDestination(responseDestination, masterAddress);
+
+  printRefundSafetyReport({
+    step: "mint mainnet",
+    network: "mainnet",
+    networkGlobalId: MAINNET_NETWORK_GLOBAL_ID,
+    master: jettonMaster,
+    adminDeployWallet: walletAddress.toString(),
+    holderWallet: TALLER_HOLDER_ADDRESS_MAINNET,
+    messageValue: "1.1 TON",
+    responseDestination: responseDestination.toString(),
+    excessDestination: responseDestination.toString() + " (holder = admin/deploy wallet)",
+    refundExcessDestinationSafe: true,
+    riskTonStuckInMaster: "no (assertSafeMintResponseDestination blocks master)",
+    willSendTx: !prepareOnly,
+    notes: "Requires TALLER_MAINNET_MINT_CONFIRM=YES_MINT_TALLER; JettonExcesses routed to admin wallet",
+  });
+
   if (prepareOnly) {
     console.log("\n--prepare-only: no transaction sent.");
     return;
   }
 
-  assertMainnetConfirm();
+  assertMainnetMintConfirm();
 
   // IMPORTANT: excess TON must return to deploy/admin wallet, not to jetton master.
   // Sending JettonExcesses to master caused exit 130 and trapped excess TON in previous mint.
-  const responseDestination = walletAddress;
-  assertSafeMintResponseDestination(responseDestination, masterAddress);
 
   const mintBody: Mint = {
     $$type: "Mint",

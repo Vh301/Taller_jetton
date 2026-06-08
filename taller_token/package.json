@@ -15,6 +15,7 @@
     "check:stats": "tsx scripts/check-jetton-stats.ts",
     "emulate:post-close": "tsx scripts/emulate-post-close.ts",
     "emulate:after-owner-null": "tsx scripts/emulate-after-owner-null.ts",
+    "emulate:after-owner-null:mainnet": "tsx scripts/emulate-after-owner-null-mainnet.ts",
     "deploy:mainnet": "tsx scripts/deploy-mainnet.ts",
     "mint:mainnet": "tsx scripts/mint-mainnet.ts",
     "close-minting:mainnet": "tsx scripts/close-minting-mainnet.ts",

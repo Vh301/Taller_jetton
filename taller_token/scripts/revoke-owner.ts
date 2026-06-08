@@ -95,7 +95,10 @@ async function main() {
   if (!isMintableFalseRaw(rawMintableFromStack(preGet.stack))) {
     throw new Error("Preflight failed: get_jetton_data mintable is not false");
   }
-  if (preInfo.admin?.address !== "0:5b11ea78601e48ecc07fea001fa65551efdc2f506f1e997e717ae654e46fb3dc") {
+  if (
+    !preInfo.admin?.address ||
+    !Address.parse(preInfo.admin.address).equals(walletAddress)
+  ) {
     throw new Error("Preflight failed: admin is not deploy wallet");
   }
 

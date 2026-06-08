@@ -47,7 +47,7 @@ export class ExtendedJettonMinter extends JettonMinter {
     jettonAmount: bigint,
     forwardTonAmount: bigint,
     totalTonAmount: bigint,
-    excessDestination: Address = to,
+    excessDestination: Address,
   ): Promise<void> {
     if (totalTonAmount <= forwardTonAmount) {
       throw new Error("Total TON amount should be greater than the forward amount");

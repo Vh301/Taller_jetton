@@ -18,6 +18,8 @@ import {
   printMainnetPrepareSummary,
   resolveMainnetToncenterRpc,
 } from "../lib/mainnet-config";
+import { TALLER_HOLDER_ADDRESS_MAINNET } from "../lib/config";
+import { printRefundSafetyReport } from "../lib/refund-safety";
 import {
   buildSignedExternalBoc,
   createMainnetWallet,
@@ -93,6 +95,23 @@ async function main() {
 
   console.log("\nAdd after deploy to taller_token/.env.local:");
   console.log(`TALLER_MAINNET_JETTON_MASTER=${masterAddress.toString()}`);
+
+  printRefundSafetyReport({
+    step: "deploy mainnet",
+    network: "mainnet",
+    networkGlobalId: MAINNET_NETWORK_GLOBAL_ID,
+    master: masterAddress.toString(),
+    adminDeployWallet: walletAddress.toString(),
+    holderWallet: TALLER_HOLDER_ADDRESS_MAINNET,
+    messageValue: "0.15 TON",
+    responseDestination: "not applicable (JettonUpdateContent deploy init)",
+    excessDestination: "not applicable (no JettonExcesses on deploy)",
+    refundExcessDestinationSafe: true,
+    riskTonStuckInMaster:
+      "low-medium: unused deploy TON may remain on master balance (~minTonsForStorage 0.01 TON+); reclaim via ClaimTON if needed",
+    willSendTx: !prepareOnly,
+    notes: "First tx may include wallet init; surplus stays on master contract, not lost to wrong address",
+  });
 
   if (prepareOnly) {
     console.log("\n--prepare-only: no transaction sent.");

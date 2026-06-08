@@ -1,11 +1,17 @@
 import { Address, beginCell, toNano } from "@ton/core";
 import { mnemonicToPrivateKey } from "@ton/crypto";
 import { storeCloseMinting } from "../output/TallerJetton_JettonMinter";
-import { TALLER_MAINNET_MINT_AMOUNT, TALLER_JETTON_IMAGE_URL, tallerAmountToNano } from "../lib/config";
+import {
+  TALLER_ADMIN_ADDRESS_MAINNET,
+  TALLER_MAINNET_MINT_AMOUNT,
+  TALLER_JETTON_IMAGE_URL,
+  tallerAmountToNano,
+} from "../lib/config";
+import { printRefundSafetyReport } from "../lib/refund-safety";
 import {
   MAINNET_NETWORK_GLOBAL_ID,
   MAINNET_TONAPI,
-  assertMainnetConfirm,
+  assertCloseMintingConfirm,
   assertMainnetNetworkOnly,
   isPrepareOnly,
   loadMainnetDeployMnemonic,
@@ -94,12 +100,28 @@ async function main() {
 
   console.log("  ChangeOwner(null): NOT running in this script");
 
+  printRefundSafetyReport({
+    step: "close-minting mainnet",
+    network: "mainnet",
+    networkGlobalId: MAINNET_NETWORK_GLOBAL_ID,
+    master: jettonMaster,
+    adminDeployWallet: walletAddress.toString(),
+    holderWallet: TALLER_ADMIN_ADDRESS_MAINNET,
+    messageValue: "0.05 TON",
+    responseDestination: "not applicable",
+    excessDestination: walletAddress.toString() + " (cashback(sender) in contract)",
+    refundExcessDestinationSafe: true,
+    riskTonStuckInMaster: "no (CloseMinting calls cashback to admin sender)",
+    willSendTx: !prepareOnly,
+    notes: "Requires TALLER_CLOSE_MINTING_CONFIRM=YES_CLOSE_MINTING",
+  });
+
   if (prepareOnly) {
     console.log("\n--prepare-only: no transaction sent.");
     return;
   }
 
-  assertMainnetConfirm();
+  assertCloseMintingConfirm();
 
   const closeMessage = internal({
     to: masterAddress,

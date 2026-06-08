@@ -1,7 +1,9 @@
 import { Address, toNano } from "@ton/core";
 import { mnemonicToPrivateKey } from "@ton/crypto";
-import { TALLER_JETTON_IMAGE_URL } from "../lib/config";
+import { TALLER_ADMIN_ADDRESS_MAINNET, TALLER_JETTON_IMAGE_URL } from "../lib/config";
+import { assertSameAddress } from "../lib/address-guard";
 import { buildChangeOwnerNullBody } from "../lib/jetton-data";
+import { printRefundSafetyReport } from "../lib/refund-safety";
 import {
   MAINNET_NETWORK_GLOBAL_ID,
   MAINNET_TONAPI,
@@ -80,6 +82,19 @@ async function main() {
   console.log("  holder balance (nano):", preBalance.toString());
   console.log("  admin (TonAPI):", preInfo.admin?.address ?? "null");
 
+  assertSameAddress(
+    walletAddress.toString(),
+    TALLER_ADMIN_ADDRESS_MAINNET,
+    "Admin / owner wallet",
+  );
+
+  if (
+    !preInfo.admin?.address ||
+    !Address.parse(preInfo.admin.address).equals(walletAddress)
+  ) {
+    throw new Error("Preflight failed: admin is not deploy wallet");
+  }
+
   if (!prepareOnly) {
     if (preInfo.mintable !== false) {
       throw new Error("Preflight failed: mintable must be false before owner revoke");
@@ -88,6 +103,22 @@ async function main() {
       throw new Error("Preflight failed: get_jetton_data mintable is not false");
     }
   }
+
+  printRefundSafetyReport({
+    step: "revoke-owner mainnet",
+    network: "mainnet",
+    networkGlobalId: MAINNET_NETWORK_GLOBAL_ID,
+    master: jettonMaster,
+    adminDeployWallet: walletAddress.toString(),
+    holderWallet: TALLER_ADMIN_ADDRESS_MAINNET,
+    messageValue: "0.05 TON",
+    responseDestination: "not applicable (ChangeOwner has no responseDestination)",
+    excessDestination: "contract cashback not explicit; small surplus may remain on master",
+    refundExcessDestinationSafe: true,
+    riskTonStuckInMaster: "low (0.05 TON; ChangeOwner handler has no cashback)",
+    willSendTx: !prepareOnly,
+    notes: "Requires TALLER_REVOKE_ADMIN_CONFIRM=YES_REVOKE_OWNER",
+  });
 
   if (prepareOnly) {
     console.log("\n--prepare-only: no transaction sent.");

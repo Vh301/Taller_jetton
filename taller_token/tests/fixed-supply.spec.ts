@@ -73,6 +73,7 @@ describe("TALLER / TLR fixed-supply (Tact base)", () => {
       mintAmount,
       toNano("0.05"),
       toNano("1"),
+      deployer.address,
     );
 
     const deployerWallet = blockchain.openContract(
