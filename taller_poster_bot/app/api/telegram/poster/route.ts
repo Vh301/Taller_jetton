@@ -24,6 +24,7 @@ import {
   getPosterAdminUserIds,
   resolveChannelChatId,
 } from "@/lib/poster/config";
+import { getChannelEnvSource } from "@/lib/telegram/env";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -317,10 +318,19 @@ function adminDeniedMessage(): string {
 }
 
 export async function GET() {
+  const channelEnv = getChannelEnvSource();
+  const channelTarget = getPosterChannelId();
+
   return NextResponse.json({
     ok: true,
     message: "TALLER poster bot webhook endpoint is running",
     timestamp: new Date().toISOString(),
+    channel: {
+      source: channelEnv?.source ?? null,
+      raw: channelEnv?.raw ?? null,
+      target: channelTarget ?? null,
+      apiChatId: channelTarget ? resolveChannelChatId(channelTarget) : null,
+    },
   });
 }
 

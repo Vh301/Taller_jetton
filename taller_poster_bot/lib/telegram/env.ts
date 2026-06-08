@@ -8,17 +8,32 @@ export function getBotToken(): string | undefined {
   );
 }
 
-export function getChannelTarget(): string | undefined {
-  const raw =
-    process.env.TALLER_CHANNEL?.trim() ||
-    process.env.TALLER_POSTER_CHANNEL?.trim() ||
-    process.env.TALLER_TELEGRAM_CHANNEL_URL?.trim() ||
-    process.env.CHANNEL_ID?.trim();
+const CHANNEL_ENV_KEYS = [
+  "TALLER_CHANNEL",
+  "TALLER_POSTER_CHANNEL",
+  "TALLER_TELEGRAM_CHANNEL_URL",
+  "CHANNEL_ID",
+] as const;
 
-  if (!raw) {
+export function getChannelEnvSource():
+  | { source: (typeof CHANNEL_ENV_KEYS)[number]; raw: string }
+  | undefined {
+  for (const key of CHANNEL_ENV_KEYS) {
+    const raw = process.env[key]?.trim();
+    if (raw) {
+      return { source: key, raw };
+    }
+  }
+  return undefined;
+}
+
+export function getChannelTarget(): string | undefined {
+  const envSource = getChannelEnvSource();
+  if (!envSource) {
     return undefined;
   }
 
+  const { raw } = envSource;
   const tMeMatch = raw.match(/(?:https?:\/\/)?t\.me\/([A-Za-z0-9_]+)/i);
   if (tMeMatch) {
     return `@${tMeMatch[1]}`;
