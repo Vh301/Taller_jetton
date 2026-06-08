@@ -1,6 +1,6 @@
 # TALLER Poster Bot — runbook
 
-Webhook-based admin bot for publishing to the TALLER Telegram channel (`@TALLER_Post_bot` → `@taller_channal`).
+Webhook-based admin bot for publishing to the TALLER Telegram channel (`@TALLER_Post_bot` → `@taller_bc`).
 
 ## Architecture
 
@@ -16,7 +16,7 @@ Local polling in `tools/taller-poster-bot/` is **dev-only** — do not use in pr
 | Variable | Purpose |
 |----------|---------|
 | `TALLER_POSTER_BOT_API_TOKEN` | Bot token |
-| `TALLER_CHANNEL` | Channel (`https://t.me/taller_channal` or `@taller_channal`) |
+| `TALLER_CHANNEL` | Channel (`https://t.me/taller_bc` or `@taller_bc`) |
 | `TALLER_POSTER_ADMIN_USER_IDS` | Comma-separated admin Telegram IDs |
 | `TALLER_POSTER_BOT_SUPABASE_URL` | Supabase project URL |
 | `TALLER_SUPABASE_ANON_KEY` | Anon key (RPC client) |
