@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "name": "TallerJetton",
+            "path": "./contracts/jetton-minter.tact",
+            "output": "./output",
+            "mode": "full",
+            "options": {
+                "external": false,
+                "debug": false,
+                "ipfsAbiGetter": false,
+                "interfacesGetter": false,
+                "experimental": {
+                    "inline": true
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+# Secrets
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Dependencies
+node_modules/
+
+# Build
+token-v2/output/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp images
+public/jetton_image/*_tmp.png
+public/jetton_image/*_rgb.png
+
+# Source logos (processed copy lives in public/jetton_image/)
+LOGO/
