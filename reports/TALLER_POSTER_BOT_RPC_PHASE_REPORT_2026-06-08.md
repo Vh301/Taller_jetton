@@ -94,7 +94,7 @@ All commands returned `200 {"ok":true}`:
 | `YYYY-MM-DD HH:mm` + schedule text | OK |
 | `/post Test from TALLER RPC` | OK |
 
-**Channel publication:** `/post Test from TALLER RPC` was sent during smoke test — **yes**, test post published to configured channel (`https://t.me/taller_channal`) if bot has channel post rights.
+**Channel publication:** `/post Test from TALLER RPC` was sent during smoke test — **yes**, test post published to configured channel (`https://t.me/taller_bc`) if bot has channel post rights.
 
 ---
 
