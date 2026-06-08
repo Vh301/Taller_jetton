@@ -96,7 +96,7 @@ async function main() {
   console.log("  Mainnet: NOT touched");
   printTestnetPrepareSummary(walletAddress.toString(), 0n);
 
-  console.log("\nAdd after deploy to token-v2/.env.local:");
+  console.log("\nAdd after deploy to taller_token/.env.local:");
   console.log(`TALLER_TESTNET_JETTON_MASTER=${masterAddress.toString()}`);
 
   if (prepareOnly) {
@@ -184,7 +184,7 @@ async function main() {
   console.log("TonAPI total_supply:", totalSupply);
   console.log("metadata URL:", TALLER_METADATA_URL);
   console.log("Mainnet touched: NO");
-  console.log("\nAdd to token-v2/.env.local:");
+  console.log("\nAdd to taller_token/.env.local:");
   console.log(`TALLER_TESTNET_JETTON_MASTER=${masterAddress.toString()}`);
   console.log("\nNext step (after Yan OK): npm run mint:testnet");
 }

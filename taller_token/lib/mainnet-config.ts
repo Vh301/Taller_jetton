@@ -40,7 +40,7 @@ export function loadMainnetDeployMnemonic(): string {
 
   if (!mnemonic) {
     throw new Error(
-      "TALLER_MAINNET_DEPLOY_MNEMONIC not set in token-v2/.env.local",
+      "TALLER_MAINNET_DEPLOY_MNEMONIC not set in taller_token/.env.local",
     );
   }
 
@@ -52,7 +52,7 @@ export function loadMainnetJettonMaster(): string {
 
   if (!master) {
     throw new Error(
-      "TALLER_MAINNET_JETTON_MASTER not set in token-v2/.env.local",
+      "TALLER_MAINNET_JETTON_MASTER not set in taller_token/.env.local",
     );
   }
 
@@ -64,7 +64,7 @@ export function assertMainnetConfirm(): void {
 
   if (confirm !== MAINNET_CONFIRM_VALUE) {
     throw new Error(
-      `Mainnet action blocked. Set TALLER_MAINNET_CONFIRM=${MAINNET_CONFIRM_VALUE} in token-v2/.env.local`,
+      `Mainnet action blocked. Set TALLER_MAINNET_CONFIRM=${MAINNET_CONFIRM_VALUE} in taller_token/.env.local`,
     );
   }
 }
@@ -76,7 +76,7 @@ export function assertCloseMintingConfirm(): void {
 
   if (closeConfirm !== CLOSE_MINTING_CONFIRM_VALUE) {
     throw new Error(
-      `Close minting blocked. Set TALLER_CLOSE_MINTING_CONFIRM=${CLOSE_MINTING_CONFIRM_VALUE} in token-v2/.env.local`,
+      `Close minting blocked. Set TALLER_CLOSE_MINTING_CONFIRM=${CLOSE_MINTING_CONFIRM_VALUE} in taller_token/.env.local`,
     );
   }
 }
@@ -88,7 +88,7 @@ export function assertRevokeConfirm(): void {
 
   if (revokeConfirm !== REVOKE_CONFIRM_VALUE) {
     throw new Error(
-      `Revoke blocked. Set TALLER_REVOKE_ADMIN_CONFIRM=${REVOKE_CONFIRM_VALUE} in token-v2/.env.local`,
+      `Revoke blocked. Set TALLER_REVOKE_ADMIN_CONFIRM=${REVOKE_CONFIRM_VALUE} in taller_token/.env.local`,
     );
   }
 }

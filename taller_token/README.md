@@ -32,7 +32,7 @@ Tag: `taller-mainnet-metadata` — **do not delete or rewrite**.
 ## Commands
 
 ```bash
-cd token-v2
+cd taller_token
 npm install
 npm run build
 npm test
@@ -61,7 +61,7 @@ npm run close-minting:mainnet -- --prepare-only
 npm run revoke-owner:mainnet -- --prepare-only
 ```
 
-All env lives in **`token-v2/.env.local` only**. See [`.env.example`](.env.example).
+All env lives in **`taller_token/.env.local` only**. See [`.env.example`](.env.example).
 
 ## Fixed-supply sequence
 

@@ -2,13 +2,15 @@
 .env
 .env.local
 .env.*.local
+*.env.local
+taller_token/.env.local
 *.pem
 
 # Dependencies
 node_modules/
 
 # Build
-token-v2/output/
+taller_token/output/
 
 # OS
 .DS_Store

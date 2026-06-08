@@ -14,7 +14,7 @@ TON fixed-supply jetton **TALLER (TLR)** — deploy tooling and pinned metadata.
 ```text
 public/metadata/          — on-chain metadata JSON
 public/jetton_image/      — jetton icon (pinned via git tag)
-token-v2/                 — Tact jetton module + deploy scripts
+taller_token/               — Tact jetton module + deploy scripts
 reports/                  — lifecycle reports
 ```
 
@@ -29,11 +29,11 @@ Do not delete or rewrite this tag after mainnet deploy.
 ## Quick start
 
 ```bash
-cd token-v2
+cd taller_token
 cp .env.example .env.local   # fill mnemonic locally, never commit
 npm install
 npm run build
 npm run typecheck
 ```
 
-See [`token-v2/README.md`](token-v2/README.md) for full deploy sequence.
+See [`taller_token/README.md`](taller_token/README.md) for full deploy sequence.

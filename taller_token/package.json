@@ -1,5 +1,5 @@
 {
-  "name": "taller-tlr-token-v2",
+  "name": "taller-token",
   "version": "0.1.0",
   "private": true,
   "description": "TALLER / TLR — Tact base fixed-supply jetton (sandbox + testnet/mainnet tooling)",

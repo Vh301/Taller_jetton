@@ -1,8 +1,26 @@
 # TALLER / TLR — Deploy Preparation Report
 
 **Date:** 2026-06-08  
+**Updated:** 2026-06-08 (revision: module rename + env structure)  
 **Author:** Masha-Kostil  
 **Status:** Preparation complete — awaiting GitHub push + testnet deploy prepare-only
+
+---
+
+## Revision log (2026-06-08)
+
+| Change | Before | After |
+|--------|--------|-------|
+| Jetton module folder | `token-v2/` (Voltix copy name) | **`taller_token/`** |
+| npm package name | `taller-tlr-token-v2` | **`taller-token`** |
+| Env zone path | `token-v2/.env.local` | **`taller_token/.env.local`** |
+| Env template | `token-v2/.env.example` | **`taller_token/.env.example`** |
+| `.env.local` file | not created | **created locally** (empty structure, not in git) |
+| Script / config messages | referenced `token-v2/.env.local` | updated to `taller_token/.env.local` |
+
+**Reason:** TALLER project must not reuse Voltix `token-v2` naming — separate deploy contour per master-guide.
+
+**Note:** If an old `token-v2/.env.local` exists locally — it is **stale**. Use only `taller_token/.env.local`.
 
 ---
 
@@ -11,22 +29,48 @@
 | Field | Value |
 |-------|-------|
 | Branch | `feature/taller-tlr-mainnet-deploy` |
-| Commit (after prep) | `0e43fecac328b95c4610ed64c3a2a23fcaf03504` |
+| Commits (initial prep) | `0e43fec` (module+metadata), `b8159f4` (first report) |
+| Pending uncommitted | rename `token-v2` → `taller_token`, path updates, report revision |
 | Remote | `https://github.com/Vh301/Taller_jetton.git` |
 | Local tag | `taller-mainnet-metadata` → `0e43fec` |
 | Push status | **BLOCKED** — GitHub denied (`jl5047537` has no write access to `Vh301/Taller_jetton`) |
 
 ### Action required (Yan)
 
-Push from account with write access to `Vh301/Taller_jetton`:
+Push from account with write access to `Vh301/Taller_jetton` (after local changes committed):
 
 ```bash
 cd C:\Projects\TALLER
+git add .
+git commit -m "Rename token-v2 to taller_token and update project paths"
 git push -u origin feature/taller-tlr-mainnet-deploy
 git push origin taller-mainnet-metadata
 ```
 
 Until push completes, pinned metadata URLs return **HTTP 404**.
+
+---
+
+## Project layout
+
+```text
+TALLER/
+├── public/
+│   ├── metadata/taller-jetton-metadata.json
+│   └── jetton_image/taller_jetton_image.png
+├── taller_token/              ← jetton module + deploy scripts (NOT token-v2)
+│   ├── .env.example           ← template (in git)
+│   ├── .env.local             ← secrets (local only, gitignored)
+│   ├── contracts/
+│   ├── lib/
+│   ├── scripts/
+│   └── tests/
+├── reports/
+│   └── TALLER_TLR_DEPLOY_PREPARATION_REPORT_2026-06-08.md
+└── LOGO/                      ← source images (gitignored)
+```
+
+**Not touched:** Voltix / VLTX mainnet contracts, `VOLTIX WHEEL/token-v2` production state.
 
 ---
 
@@ -94,35 +138,25 @@ Until push completes, pinned metadata URLs return **HTTP 404**.
 
 ---
 
-## Changed / created files
-
-```text
-.gitignore
-README.md
-public/metadata/taller-jetton-metadata.json
-public/jetton_image/taller_jetton_image.png
-token-v2/                    (full module adapted from Voltix token-v2)
-reports/                     (this report)
-```
-
-**Not touched:** Voltix / VLTX mainnet contracts, `VOLTIX WHEEL/token-v2` production state.
-
----
-
 ## Env zone
 
-Template: `token-v2/.env.example`
+| File | Path | In git |
+|------|------|--------|
+| Template | `taller_token/.env.example` | yes |
+| Local secrets | `taller_token/.env.local` | **no** (gitignored) |
 
-Local secrets: `token-v2/.env.local` — **not committed** (Yan confirmed mnemonic ready locally).
+`.env.local` created with correct structure (testnet + mainnet sections, confirm flags commented).
 
-Required variables:
+Yan fills locally:
 
 ```env
 TALLER_TESTNET_DEPLOY_MNEMONIC=...
-TALLER_TESTNET_CONFIRM=YES_I_UNDERSTAND   # only when sending txs
+# TALLER_TESTNET_CONFIRM=YES_I_UNDERSTAND   # only before real tx, not --prepare-only
 TALLER_TESTNET_JETTON_MASTER=             # after deploy
 TONCENTER_TESTNET_API_KEY=                # optional
 ```
+
+Mainnet variables remain empty until testnet phase complete.
 
 ---
 
@@ -131,11 +165,12 @@ TONCENTER_TESTNET_API_KEY=                # optional
 | Check | Result |
 |-------|--------|
 | `npm run build` | PASS |
-| `npm run typecheck` | PASS |
+| `npm run typecheck` | PASS (re-checked after rename) |
 | `npm test` | PASS (9/9) |
 | Network guards testnet | globalId -3, testnet.tonapi.io |
 | Network guards mainnet | globalId -239, tonapi.io |
 | VLTX hardcoded masters removed | yes |
+| Module naming TALLER-specific | yes (`taller_token/`) |
 
 ---
 
@@ -143,26 +178,39 @@ TONCENTER_TESTNET_API_KEY=                # optional
 
 | Item | Status |
 |------|--------|
-| Branch + commit | yes |
-| token-v2 module | yes |
+| Branch | yes |
+| `taller_token/` module | yes |
 | Metadata files local | yes |
 | Tag created locally | yes |
 | Tag pushed to GitHub | **no** — blocked |
 | Metadata HTTP 200 | **no** — blocked by push |
-| `.env.local` mnemonic | Yan confirmed ready |
+| `taller_token/.env.local` exists | yes (structure; mnemonic = Yan fills) |
 | On-chain deploy | **not run** |
 
 **Overall:** `partial` — code ready; **blocked on GitHub push** before metadata preflight can pass.
 
 ---
 
+## Commands (updated paths)
+
+```bash
+cd C:\Projects\TALLER\taller_token
+
+# after push + mnemonic filled:
+npm run deploy:testnet -- --prepare-only
+```
+
+---
+
 ## Next steps (staged-flow)
 
-1. Yan pushes branch + tag to `Vh301/Taller_jetton`
-2. Verify metadata + image HTTP 200
-3. `npm run deploy:testnet -- --prepare-only` → report → Yan OK
-4. `npm run deploy:testnet` → STOP
-5. Continue: mint → close → revoke → testnet checks → mainnet preflight → ...
+1. Commit rename changes locally (if not yet committed)
+2. Yan pushes branch + tag to `Vh301/Taller_jetton`
+3. Verify metadata + image HTTP 200
+4. Fill `taller_token/.env.local` mnemonic (if not done)
+5. `npm run deploy:testnet -- --prepare-only` → report → Yan OK
+6. `npm run deploy:testnet` → STOP
+7. Continue: mint → close → revoke → testnet checks → mainnet preflight → ...
 
 ---
 
@@ -173,3 +221,4 @@ TONCENTER_TESTNET_API_KEY=                # optional
 - No mainnet operations
 - No `.env.local` committed
 - No push to GitHub (permission denied)
+- No on-chain steps of any kind

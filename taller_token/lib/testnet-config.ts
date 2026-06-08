@@ -31,7 +31,7 @@ export function loadTestnetDeployMnemonic(): string {
 
   if (!mnemonic) {
     throw new Error(
-      "TALLER_TESTNET_DEPLOY_MNEMONIC not set in token-v2/.env.local",
+      "TALLER_TESTNET_DEPLOY_MNEMONIC not set in taller_token/.env.local",
     );
   }
 
@@ -41,7 +41,7 @@ export function loadTestnetDeployMnemonic(): string {
 export function loadTestnetJettonMaster(): string {
   const master = process.env.TALLER_TESTNET_JETTON_MASTER?.trim();
   if (!master) {
-    throw new Error("TALLER_TESTNET_JETTON_MASTER not set in token-v2/.env.local");
+    throw new Error("TALLER_TESTNET_JETTON_MASTER not set in taller_token/.env.local");
   }
   return master;
 }
@@ -53,7 +53,7 @@ export function isPrepareOnly(argv: string[] = process.argv): boolean {
 export function assertTestnetConfirm(): void {
   if (process.env.TALLER_TESTNET_CONFIRM !== "YES_I_UNDERSTAND") {
     throw new Error(
-      "Set TALLER_TESTNET_CONFIRM=YES_I_UNDERSTAND in token-v2/.env.local to send testnet transactions.",
+      "Set TALLER_TESTNET_CONFIRM=YES_I_UNDERSTAND in taller_token/.env.local to send testnet transactions.",
     );
   }
 }

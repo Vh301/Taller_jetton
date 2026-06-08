@@ -59,7 +59,7 @@ async function main() {
   await preflightTallerMetadata();
 
   const cleanMnemonic = loadMainnetDeployMnemonic();
-  console.log("Mainnet mnemonic loaded from token-v2/.env.local");
+  console.log("Mainnet mnemonic loaded from taller_token/.env.local");
 
   const keyPair = await mnemonicToPrivateKey(cleanMnemonic.split(" "));
   const wallet = createMainnetWallet(keyPair);
@@ -91,7 +91,7 @@ async function main() {
   console.log("  Mint/Close/Revoke: NOT running in this script");
   printMainnetPrepareSummary(walletAddress.toString(), 0n);
 
-  console.log("\nAdd after deploy to token-v2/.env.local:");
+  console.log("\nAdd after deploy to taller_token/.env.local:");
   console.log(`TALLER_MAINNET_JETTON_MASTER=${masterAddress.toString()}`);
 
   if (prepareOnly) {
