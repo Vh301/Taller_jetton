@@ -1,0 +1,152 @@
+2026-06-08 17:00
+TALLER BC begins its journey. We created this channel to openly show the development of the project: from the idea of a club utility token to the website, token, first participants, and future ecosystem. TALLER BC is a Builders Club on TON for people who are interested in creating, discussing, and developing digital ideas.
+
+2026-06-09 13:00
+Today we discussed what the TALLER BC landing page should look like. The main goal is to explain the project simply: this is not a noisy story about promises and quick growth, but a creative club on TON where TALLER will be used as a community utility token for participation, access, and future club features.
+
+2026-06-10 12:30
+We started building the structure of the landing page. The website should have clear sections: what TALLER BC is, why TALLER exists, what role the club plays, how the project will develop, and why we focus on participation instead of empty crypto noise.
+
+2026-06-11 14:00
+The first version of the TALLER BC landing page is starting to take shape. We are polishing the texts, removing unnecessary hype, and keeping the essentials: club, TON, builders, participation, ideas, and careful development. We want visitors to open the website and immediately understand the project.
+
+2026-06-12 12:00
+In parallel with the landing page, we started the technical part of the token. We are preparing the TALLER contract for TON: checking the basic parameters, metadata, name, symbol, supply, and minting logic. At this stage, the most important thing is not to rush, but to do everything cleanly and safely.
+
+2026-06-13 13:30
+We ran the first token checks on testnet. We are checking how the metadata is displayed, how minting works, how the token appears in wallets, and whether there are any issues in the basic logic. Testnet exists exactly for this: to calmly catch small issues before mainnet.
+
+2026-06-14 12:00
+The tests went well, and TALLER is getting ready to move to mainnet. We are checking the addresses, token parameters, supply, metadata, and final settings one more time. This is the moment where it is better to check three times than to heroically fix an obvious mistake later.
+
+2026-06-15 13:00
+TALLER is now live on mainnet. This is an important milestone for the project: TALLER BC now has not only a channel and a landing page, but also a real token on the TON network. The first participants are starting to receive TALLER, and the project is moving from preparation to development.
+
+2026-06-16 12:30
+The first TALLER holders have appeared among the channel subscribers. For us, this is an important symbolic start: the token is beginning to live not only inside the contract, but also inside the community. Next, we will develop the club idea and gradually add more meaning around TALLER.
+
+2026-06-18 13:00
+Now the focus of TALLER BC is shifting from launch to development. The basic foundation is already here: channel, landing page, token, and first participants. The next stage is regular content, a clear project story, and the first ideas for club utility mechanics.
+
+2026-06-20 12:00
+We are improving the public description of TALLER BC. It is important that the project sounds calm and honest: TALLER is a community utility token for the Builders Club, not a financial promise. The role of the token is participation, access, club identity, and future features.
+
+2026-06-22 14:00
+We are starting to shape the content direction for the channel. It will include project updates, notes about TALLER, explanations of club mechanics, ideas for future features, visual updates, and an honest diary of how the project develops step by step.
+
+2026-06-24 12:30
+TALLER BC is built around a simple idea: people love to create. Some write code, some design mechanics, some create visuals, some test, and some simply bring good ideas. The club should become a place where all of this connects.
+
+2026-06-26 13:00
+We continue developing the landing page. Now we are looking at which sections need to be strengthened: the role of the token, the club description, future features, the roadmap, and a clear entry point for new participants. The website should be more than a simple business card; it should be a real door into the project.
+
+2026-06-28 12:00
+TALLER BC is not a “token for the sake of a token.” The token should be part of the club logic: helping to mark participation, open future features, connect participants, and form the internal club economy without unnecessary noise.
+
+2026-06-30 14:00
+We are discussing the first possible use cases for TALLER. These may include access to private materials, club roles, participation in activities, internal reputation, events, and future mechanics for active participants.
+
+2026-07-02 12:30
+The main principle of TALLER BC development is not to overload the project too early. First comes a clear foundation, then regular content, then the first club features. It is better to build gradually than to promise a huge system and lose clarity.
+
+2026-07-04 13:00
+TALLER BC should be understandable even for people who do not live in Web3 every day. That is why we explain the project in simple words: a builders club on TON, a token for participation and future features, the channel as a development diary, and the landing page as an entry point.
+
+2026-07-06 12:00
+We are starting to think about the visual identity of TALLER BC. We want the project to feel like a digital workshop: modern, calm, slightly technological, but without a cold corporate feeling. The club should feel alive.
+
+2026-07-08 14:00
+The first weeks showed the most important thing: TALLER BC can develop without unnecessary rush or aggressive messaging. There is a channel, a website, a token, first holders, and a clear idea. Now it is important to regularly fill the project with meaning.
+
+2026-07-10 12:30
+Next, we will talk more about what the Builders Club can become. This is not only about the token. It is about ideas, prototypes, mini-apps, design, game mechanics, bots, and people who want to participate in building.
+
+2026-07-12 13:00
+TALLER can become an internal sign of participation in the club. Not just a number in a wallet, but part of a future system: who participates, who helps, who proposes ideas, who supports development, and who becomes part of the club core.
+
+2026-07-14 12:00
+We are working to make TALLER BC feel different from a generic crypto project. It needs its own character: calm, creative, a little bold, but still clear. The project should feel like a place where something is really being built.
+
+2026-07-16 15:00
+One of the future focuses is club activities. These may include tasks, ideas of the week, prototype discussions, voting on directions, private materials, and other formats where TALLER is connected to participation.
+
+2026-07-18 12:30
+It is important to remember: TALLER BC grows not only through the token, but also through trust. Trust appears when the project regularly explains what it is doing, why it is doing it, and what decisions are being made. That is why the channel remains an important part of the whole ecosystem.
+
+2026-07-20 13:00
+TALLER BC is now in a strong starting position. There is a public entry point, a token on TON, first subscribers, and first holders. The next task is to turn this into a real club movement.
+
+2026-07-22 12:00
+We are thinking through the future roadmap of TALLER BC. It should be realistic: website development, visual packaging, regular content, first club features, community growth, and only then more complex mechanics.
+
+2026-07-24 14:00
+TALLER BC is a project about participation. You can be a developer, designer, idea creator, tester, observer, or active participant. The club ecosystem should be wide enough for different people to find their place inside it.
+
+2026-07-26 12:30
+We continue strengthening the positioning of TALLER. The simpler the explanation, the better: TALLER is a utility token for the Builders Club on TON. Its meaning is participation, access, activity, and future club opportunities.
+
+2026-07-28 13:00
+In the future, TALLER BC may become a platform for small experiments: bots, mini-apps, game ideas, NFT elements, design concepts, and different digital things born inside the club.
+
+2026-07-30 12:00
+We do not want to pretend that everything appears instantly. A real project grows in layers. The first layer is already here: channel, landing page, token, and first participants. The second layer is content, trust, and explanation. The third layer is real club features.
+
+2026-08-01 15:00
+Right now, it is especially important not to lose simplicity. TALLER BC should remain easy to understand: creative club, TON, utility token, participation, future features. If the idea is clear, everything else is easier to build around it.
+
+2026-08-03 12:30
+We continue developing the channel as the project diary. It will not only include polished news, but also working notes: what we discuss, what we improve, which ideas we consider, and where we want to move TALLER BC next.
+
+2026-08-05 13:00
+TALLER BC is gradually building its own atmosphere. This is not a trading story or a loud showcase. It feels more like a club workshop, where the token becomes part of participation instead of being the whole point.
+
+2026-08-07 12:00
+The next big question is the first real utility scenarios. They should be small, understandable, and useful. There is no need to create a complicated system just for the sake of looking impressive. It is better to start simple and check what participants really need.
+
+2026-08-09 14:00
+We see TALLER as a tool for future club features. For example: access, roles, activity, internal events, participation in ideas, private materials, and other mechanics that will appear gradually.
+
+2026-08-11 12:30
+TALLER BC wants to be friendly to newcomers. You do not need to understand every technical detail of TON to understand the project. The idea is simple enough: this is a club for creators, where TALLER helps build participation and future opportunities.
+
+2026-08-13 13:00
+We are working to make the website and the channel speak the same language. The landing page explains the foundation, the channel shows development, the token connects the club mechanics, and the subscribers become the first participants in this story.
+
+2026-08-15 12:00
+TALLER BC has already passed the first stage: becoming public. Now a longer stage begins: becoming useful, clear, and interesting. This requires not one loud launch, but regular work and steady development.
+
+2026-08-17 15:00
+One possible direction for the club is small internal initiatives. For example, discussing ideas, choosing directions, testing prototypes, collecting feedback, and recognizing active participants through club mechanics.
+
+2026-08-19 12:30
+TALLER BC should develop without unnecessary rush. The project already has a foundation, and now it is important not to dilute the meaning. Every new step should answer a simple question: how does this help the club and its participants?
+
+2026-08-21 13:00
+We continue to see TALLER as a long-term club story. The token is already created, but the real value of the project will appear through people, content, features, ideas, and regular community development.
+
+2026-08-23 12:00
+In the near future, TALLER BC will talk more about its directions: builders, design, TON, mini-apps, game ideas, community utility, and club activities. This will help new participants understand where we are going faster.
+
+2026-08-25 14:00
+A good club cannot be built with one post or one token. It is built through consistency, a clear idea, normal communication, and people who are interested in being inside. That is exactly the direction in which we are moving TALLER BC.
+
+2026-08-27 12:30
+TALLER BC remains a calm project without unnecessary promises. We are not selling a dream of a quick result. We are building a club environment on TON, where the token is used as an element of participation and future features.
+
+2026-08-29 13:00
+Right now, the most important thing is to keep showing movement. Even small steps matter: a new post, a website improvement, a feature idea, a mechanic discussion, first participants, first holders, and first reactions.
+
+2026-08-31 12:00
+TALLER BC is gradually becoming a clear system: the channel tells the story, the landing page explains the project, the token lives on TON, participants form the first core, and future features will be added as the club grows.
+
+2026-09-02 15:00
+We will develop TALLER BC as a club, not as a one-time campaign. That means more meaning, more consistency, clearer explanations, more visuals, and careful addition of utility mechanics.
+
+2026-09-04 12:30
+There is a lot of work ahead for TALLER BC: improving the public packaging, first activities, community development, new materials, possible club roles, and gradual expansion of TALLER use cases.
+
+2026-09-06 13:00
+TALLER BC has already started its journey: channel, landing page, token, mainnet, first holders, and first subscribers. Now the task is to develop it not as a random launch, but as a living club ecosystem.
+
+2026-09-08 12:00
+Three months have passed since the beginning of TALLER BC’s public story. During this time, the project went from channel and landing page to token, first holders, and a clear direction for development. Next comes more specifics, more features, more visuals, and more real movement for the club.
