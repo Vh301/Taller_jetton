@@ -14,7 +14,8 @@ TON fixed-supply jetton **TALLER (TLR)** — deploy tooling and pinned metadata.
 ```text
 public/metadata/          — on-chain metadata JSON
 public/jetton_image/      — jetton icon (pinned via git tag)
-taller_token/               — Tact jetton module + deploy scripts
+taller_token/             — Tact jetton module + deploy scripts
+taller_poster_bot/        — Telegram poster bot (Vercel webhook + Supabase)
 reports/                  — lifecycle reports
 ```
 

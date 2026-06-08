@@ -4,6 +4,7 @@
 .env.*.local
 *.env.local
 taller_token/.env.local
+taller_poster_bot/.env.local
 *.pem
 
 # Dependencies
@@ -15,6 +16,9 @@ taller_token/output/
 # OS
 .DS_Store
 Thumbs.db
+
+# Cursor / Playwright MCP artifacts
+.playwright-mcp/
 
 # Temp images
 public/jetton_image/*_tmp.png
